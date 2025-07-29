@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengaduan - Desa Kersamaju</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/style.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <!-- Navbar -->
+    <nav id="navbar"
+        class="fixed top-4 left-4 right-4 z-50 bg-white bg-opacity-90 backdrop-blur-md text-black rounded-xl shadow-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="/img/logodesa.png" alt="Logo" class="w-8 h-8">
+                <h1 class="text-2xl font-bold">SIKERSA</h1>
+            </div>
+            <button class="md:hidden text-2xl" onclick="document.getElementById('sidebar').classList.toggle('hidden')">
+                <i class="ph ph-list"></i>
+            </button>
+            <ul class="hidden md:flex gap-6 text-sm items-center">
+                <li><a href="/Beranda/LdPage.html" class="hover:text-blue-600 transition">Beranda</a></li>
+                <li><a href="/Profil/profile.html" class="hover:text-blue-600 transition">Profil</a></li>
+                <li class="relative">
+                    <button onclick="toggleDropdown('dropdown1')"
+                        class="hover:text-blue-600 transition flex items-center gap-1">Demografi <i
+                            class="ph ph-caret-down"></i></button>
+                    <ul id="dropdown1" class="absolute hidden bg-white shadow rounded mt-2 w-40 z-50">
+                        <li><a href="/Demografi/pendidikan.html"
+                                class="block px-4 py-2 hover:bg-gray-100">Pendidikan</a></li>
+                        <li><a href="/Demografi/pekerjaan.html" class="block px-4 py-2 hover:bg-gray-100">Pekerjaan</a>
+                        </li>
+                        <li><a href="/Demografi/agama.html" class="block px-4 py-2 hover:bg-gray-100">Agama</a></li>
+                        <li><a href="/Demografi/LwDesa.html" class="block px-4 py-2 hover:bg-gray-100">Luas Wilayah</a>
+                        </li>
+                        <li><a href="/Demografi/MpDesa.html" class="block px-4 py-2 hover:bg-gray-100">Maps Desa</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li><a href="/laporanApdes/apdes.html" class="hover:text-blue-600 transition">Laporan APDES</a></li>
+                <li class="relative">
+                    <button onclick="toggleDropdown('dropdown2')"
+                        class="hover:text-blue-600 transition flex items-center gap-1">Potensi <i
+                            class="ph ph-caret-down"></i></button>
+                    <ul id="dropdown2" class="absolute hidden bg-white shadow rounded mt-2 w-48 z-50">
+                        <li><a href="/potensi/lapakdesa.html" class="block px-4 py-2 hover:bg-gray-100">Lapak Desa
+                                (UMKM)</a></li>
+                        <li><a href="/potensi/potensidesa.html" class="block px-4 py-2 hover:bg-gray-100">Potensi
+                                Desa</a></li>
+                    </ul>
+                </li>
+                <li><a href="/galeri/galeri.html" class="hover:text-blue-600 transition">Galeri</a></li>
+                <li>
+                    <a href="/Pengaduan/pengaduan.html"
+                        class="px-4 py-2 bg-gradient-to-b from-blue-500 to-blue-700 text-white font-semibold rounded shadow hover:shadow-lg transform hover:scale-105 transition duration-300">
+                        Kritik & Saran
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sidebar Mobile -->
+    <div id="sidebar" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden md:hidden"
+        onclick="this.classList.add('hidden')">
+        <div class="w-64 bg-white h-full p-6 space-y-4" onclick="event.stopPropagation()">
+            <div class="flex items-center gap-2">
+                <img src="/img/logodesa.png" alt="Logo" class="w-6 h-6">
+                <h2 class="text-xl font-bold">SIKERSA</h2>
+            </div>
+            <a href="/Beranda/LdPage.html" class="block text-gray-700 hover:text-blue-600">Beranda</a>
+            <a href="/Profil/profile.html" class="block text-gray-700 hover:text-blue-600">Profil</a>
+            <details class="group">
+                <summary class="cursor-pointer hover:text-blue-600 flex justify-between items-center">Demografi <i
+                        class="ph ph-caret-down"></i></summary>
+                <ul class="pl-4 space-y-1">
+                    <li><a href="/Demografi/pendidikan.html" class="block hover:text-blue-600">Pendidikan</a></li>
+                    <li><a href="/Demografi/pekerjaan.html" class="block hover:text-blue-600">Pekerjaan</a></li>
+                    <li><a href="/Demografi/agama.html" class="block hover:text-blue-600">Agama</a></li>
+                    <li><a href="/Demografi/LwDesa.html" class="block hover:text-blue-600">Luas Wilayah</a></li>
+                    <li><a href="/Demografi/MpDesa.html" class="block hover:text-blue-600">Maps Desa</a></li>
+                </ul>
+            </details>
+            <details class="group">
+                <summary class="cursor-pointer hover:text-blue-600 flex justify-between items-center">Potensi <i
+                        class="ph ph-caret-down"></i></summary>
+                <ul class="pl-4 space-y-1">
+                    <li><a href="/potensi/lapakdesa.html" class="block hover:text-blue-600">Lapak Desa (UMKM)</a></li>
+                    <li><a href="/potensi/potensidesa.html" class="block hover:text-blue-600">Potensi Desa</a></li>
+                </ul>
+            </details>
+            <a href="/galeri/galeri.html" class="block text-gray-700 hover:text-blue-600">Galeri</a>
+            <a href="/Pengaduan/pengaduan.html"
+                class="block mt-4 px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700">Kritik & Saran</a>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <main class="pt-28 px-4 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-6">Form Kritik & Saran Masyarakat</h2>
+        <form class="bg-white p-6 rounded shadow-md space-y-4">
+            <div>
+                <label class="block mb-1 font-medium">Nama Lengkap</label>
+                <input type="text" placeholder="Masukkan nama Anda"
+                    class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200" required>
+            </div>
+            <div>
+                <label class="block mb-1 font-medium">Email</label>
+                <input type="email" placeholder="contoh@email.com"
+                    class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200" required>
+            </div>
+            <div>
+                <label class="block mb-1 font-medium">Kategori</label>
+                <select class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200">
+                    <option>Kebersihan</option>
+                    <option>Keamanan</option>
+                    <option>Infrastruktur</option>
+                    <option>Pelayanan Publik</option>
+                    <option>Lainnya</option>
+                </select>
+            </div>
+            <div>
+                <label class="block mb-1 font-medium">Isi Kritik & Saran</label>
+                <textarea rows="5" placeholder="Tulis pengaduan Anda..."
+                    class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
+                    required></textarea>
+            </div>
+            <div>
+                <button type="submit"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded">Kirim
+                    Kritik & Saran</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 mt-5 text-white pt-10 animate-fadeIn">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div>
+                <h4 class="font-bold mb-2">Sejarah Singkat Desa</h4>
+                <p class="text-sm">Desa Kersamaju berdiri sejak tahun .... dan telah berkembang menjadi desa yang...</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-2">Tautan Cepat</h4>
+                <ul class="text-sm space-y-1">
+                    <li><a href="#beranda" class="hover:underline">Beranda</a></li>
+                    <li><a href="#visi" class="hover:underline">Visi Misi</a></li>
+                    <li><a href="#pengaduan" class="hover:underline">Pengaduan</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-2">Kontak Kami</h4>
+                <p class="text-sm">Alamat: Desa Kersamaju, Kec. Cigalontang, Kab. Tasikmalaya</p>
+                <p class="text-sm">Email: info@kersamaju.desa.id</p>
+                <p class="text-sm">Telp: 0812-3456-7890</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-2">Media Sosial</h4>
+                <ul class="text-sm space-y-1">
+                    <li><a href="#" class="hover:underline">Facebook</a></li>
+                    <li><a href="#" class="hover:underline">Instagram</a></li>
+                    <li><a href="#" class="hover:underline">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-sm mt-6 py-4 border-t border-gray-700">
+            &copy; 2025 Desa Kersamaju. Semua hak dilindungi.
+        </div>
+    </footer>
+
+</body>
+
+</html>
