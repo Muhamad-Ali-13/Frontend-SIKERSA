@@ -10,6 +10,7 @@
             }
 }
 
+
 tailwind.config = {
     theme: {
         extend: {
