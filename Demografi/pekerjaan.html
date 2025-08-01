@@ -100,17 +100,17 @@
                 class="block mt-4 px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700">Kritik & Saran</a>
         </div>
     </div>
-
     <!-- Main Content -->
     <main class="pt-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex-grow">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-blue-700 mb-10">Data Pendidikan Warga Desa
-            Kersamaju</h2>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-blue-700 mb-10">Data Pekerjaan Warga Desa
+            Kersamaju
+        </h2>
 
         <div class="grid md:grid-cols-2 gap-8 items-start">
             <!-- Chart Section -->
             <div class="bg-white rounded-lg shadow p-6">
-                <h3 class="text-xl font-semibold text-center mb-6">Statistik Pendidikan</h3>
-                <canvas id="pendidikanChart" class="w-full max-w-md mx-auto"></canvas>
+                <h3 class="text-xl font-semibold text-center mb-6">Statistik Pekerjaan</h3>
+                <canvas id="pekerjaanChart" class="w-full max-w-md mx-auto"></canvas>
             </div>
 
             <!-- Table Section -->
@@ -119,55 +119,50 @@
                     <thead class="bg-blue-700 text-white">
                         <tr>
                             <th class="px-4 py-3">No</th>
-                            <th class="px-4 py-3">Tingkat Pendidikan</th>
+                            <th class="px-4 py-3">Jenis Pekerjaan</th>
                             <th class="px-4 py-3">Jumlah</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-2">1</td>
-                            <td class="px-4 py-2">Akademi/Diploma III</td>
-                            <td class="px-4 py-2">12</td>
+                            <td class="px-4 py-2">Petani</td>
+                            <td class="px-4 py-2">1340</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-2">2</td>
-                            <td class="px-4 py-2">Diploma I/II</td>
-                            <td class="px-4 py-2">6</td>
+                            <td class="px-4 py-2">Buruh Tani</td>
+                            <td class="px-4 py-2">450</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-2">3</td>
-                            <td class="px-4 py-2">Diploma IV/S1</td>
-                            <td class="px-4 py-2">52</td>
+                            <td class="px-4 py-2">PNS</td>
+                            <td class="px-4 py-2">35</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-2">4</td>
-                            <td class="px-4 py-2">SLTA/Sederajat</td>
-                            <td class="px-4 py-2">307</td>
+                            <td class="px-4 py-2">Guru</td>
+                            <td class="px-4 py-2">28</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-2">5</td>
-                            <td class="px-4 py-2">SLTP/Sederajat</td>
-                            <td class="px-4 py-2">640</td>
+                            <td class="px-4 py-2">Wiraswasta</td>
+                            <td class="px-4 py-2">330</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-2">6</td>
-                            <td class="px-4 py-2">Strata II</td>
-                            <td class="px-4 py-2">5</td>
+                            <td class="px-4 py-2">Pelajar/Mahasiswa</td>
+                            <td class="px-4 py-2">1200</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-2">7</td>
-                            <td class="px-4 py-2">Tamat SD/Sederajat</td>
-                            <td class="px-4 py-2">2223</td>
+                            <td class="px-4 py-2">Ibu Rumah Tangga</td>
+                            <td class="px-4 py-2">980</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-2">8</td>
-                            <td class="px-4 py-2">Tidak Tamat SD</td>
-                            <td class="px-4 py-2">448</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-4 py-2">9</td>
-                            <td class="px-4 py-2">Tidak/Belum Sekolah</td>
-                            <td class="px-4 py-2">1153</td>
+                            <td class="px-4 py-2">Lainnya</td>
+                            <td class="px-4 py-2">147</td>
                         </tr>
                     </tbody>
                 </table>
@@ -230,33 +225,31 @@
     </footer>
 
     <script>
-        const ctx = document.getElementById('pendidikanChart').getContext('2d');
-        const pendidikanChart = new Chart(ctx, {
+        const ctxPekerjaan = document.getElementById('pekerjaanChart').getContext('2d');
+        new Chart(ctxPekerjaan, {
             type: 'pie',
             data: {
                 labels: [
-                    "Akademi/Diploma III",
-                    "Diploma I/II",
-                    "Diploma IV/S1",
-                    "SLTA/Sederajat",
-                    "SLTP/Sederajat",
-                    "Strata II",
-                    "Tamat SD",
-                    "Tidak Tamat SD",
-                    "Tidak/Belum Sekolah"
+                    'Petani',
+                    'Buruh Tani',
+                    'PNS',
+                    'Guru',
+                    'Wiraswasta',
+                    'Pelajar/Mahasiswa',
+                    'Ibu Rumah Tangga',
+                    'Lainnya'
                 ],
                 datasets: [{
-                    data: [12, 6, 52, 307, 640, 5, 2223, 448, 1153],
+                    data: [1340, 450, 35, 28, 330, 1200, 980, 147],
                     backgroundColor: [
-                        "#3B82F6",
-                        "#60A5FA",
-                        "#818CF8",
-                        "#FBBF24",
-                        "#F87171",
-                        "#10B981",
-                        "#E879F9",
-                        "#F472B6",
-                        "#94A3B8"
+                        '#4ade80',
+                        '#facc15',
+                        '#60a5fa',
+                        '#818cf8',
+                        '#f472b6',
+                        '#34d399',
+                        '#f87171',
+                        '#c084fc'
                     ],
                     borderWidth: 1
                 }]
