@@ -15,7 +15,7 @@
     <nav id="navbar"
         class="fixed top-4 left-4 right-4 z-50 bg-white bg-opacity-90 backdrop-blur-md text-black rounded-xl shadow-lg transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center transform transition duration-300 hover:scale-105 gap-2">
                 <img src="../img/logodesa.png" alt="Logo" class="w-8 h-8">
                 <h1 class="text-2xl font-bold">SIKERSA</h1>
             </div>
@@ -26,9 +26,7 @@
                 <li><a href="../Beranda/LdPage.html" class="hover:text-blue-600 transition">Beranda</a></li>
                 <li><a href="../Profil/profile.html" class="hover:text-blue-600 transition">Profil</a></li>
                 <li class="relative">
-                    <button onclick="toggleDropdown('dropdown1')"
-                        class="hover:text-blue-600 transition flex items-center gap-1">Demografi <i
-                            class="ph ph-caret-down"></i></button>
+                    <button onclick="toggleDropdown('dropdown1')" class="hover:text-blue-600 transition flex items-center gap-1">Demografi <i class="ph ph-caret-down"></i></button>
                     <ul id="dropdown1" class="absolute hidden bg-white shadow rounded mt-2 w-40 z-50">
                         <li><a href="../Demografi/pendidikan.html"
                                 class="block px-4 py-2 hover:bg-gray-100">Pendidikan</a></li>
@@ -48,9 +46,7 @@
                 </li>
                 <li><a href="../laporanApdes/apdes.html" class="hover:text-blue-600 transition">Laporan APDES</a></li>
                 <li class="relative">
-                    <button onclick="toggleDropdown('dropdown2')"
-                        class="hover:text-blue-600 transition flex items-center gap-1">Potensi <i
-                            class="ph ph-caret-down"></i></button>
+                    <button onclick="toggleDropdown('dropdown2')" class="hover:text-blue-600 transition flex items-center gap-1">Potensi <i class="ph ph-caret-down"></i></button>
                     <ul id="dropdown2" class="absolute hidden bg-white shadow rounded mt-2 w-48 z-50">
                         <li><a href="../potensi/lapakdesa.html" class="block px-4 py-2 hover:bg-gray-100">Lapak Desa
                                 (UMKM)</a></li>
@@ -61,7 +57,7 @@
                 <li><a href="../galeri/galeri.html" class="hover:text-blue-600 transition">Galeri</a></li>
                 <li>
                     <a href="../Pengaduan/pengaduan.html"
-                        class="flex items-center gap-2 px-4 py-2 bg-gradient-to-b from-blue-500 to-blue-700 text-white font-semibold rounded shadow hover:shadow-lg transform hover:scale-105 transition duration-300">
+                        class="flex items-center transform transition duration-300 hover:scale-105 gap-2 px-4 py-2 bg-gradient-to-b from-blue-500 to-blue-700 text-white font-semibold rounded shadow hover:shadow-lg">
                         <i class="ph ph-chat-centered-text text-lg"></i>
                         Kritik & Saran
                     </a>
@@ -74,15 +70,14 @@
     <div id="sidebar" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden md:hidden"
         onclick="this.classList.add('hidden')">
         <div class="w-64 bg-white h-full p-6 space-y-4" onclick="event.stopPropagation()">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center transform transition duration-300 hover:scale-105 gap-2">
                 <img src="../img/logodesa.png" alt="Logo" class="w-6 h-6">
                 <h2 class="text-xl font-bold">SIKERSA</h2>
             </div>
             <a href="../Beranda/LdPage.html" class="block text-gray-700 hover:text-blue-600">Beranda</a>
             <a href="../Profil/profile.html" class="block text-gray-700 hover:text-blue-600">Profil</a>
             <details class="group">
-                <summary class="cursor-pointer hover:text-blue-600 flex justify-between items-center">Demografi <i
-                        class="ph ph-caret-down"></i></summary>
+                <summary class="cursor-pointer hover:text-blue-600 flex justify-between items-center">Demografi <i class="ph ph-caret-down"></i></summary>
                 <ul class="pl-4 space-y-1">
                     <li><a href="../Demografi/pendidikan.html" class="block hover:text-blue-600">Pendidikan</a></li>
                     <li><a href="../Demografi/pekerjaan.html" class="block hover:text-blue-600">Pekerjaan</a></li>
@@ -124,35 +119,35 @@
             <h3 class="text-2xl font-bold text-blue-800 mb-4">1. Belanja</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Belanja Items -->
-                <div class="bg-gradient-to-r from-blue-700 to-blue-400 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-blue-700 to-blue-400 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105">
                     <div class="text-4xl mb-2">🏛️</div>
                     <p class="font-bold">Penyelenggaraan Pemerintahan</p>
                     <p class="text-lg font-semibold">Rp. 741.286.502</p>
                 </div>
-                <div
-                    class="bg-gradient-to-r from-green-700 to-green-400 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-green-700 to-green-400 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105">
                     <div class="text-4xl mb-2">🏗️</div>
                     <p class="font-bold">Pelaksanaan Pembangunan</p>
                     <p class="text-lg font-semibold">Rp. 768.663.500</p>
                 </div>
-                <div
-                    class="bg-gradient-to-r from-yellow-700 to-yellow-400 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-yellow-700 to-yellow-400 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105">
                     <div class="text-4xl mb-2">🤝</div>
                     <p class="font-bold">Pembinaan Kemasyarakatan</p>
                     <p class="text-lg font-semibold">Rp. 91.460.000</p>
                 </div>
-                <div
-                    class="bg-gradient-to-r from-purple-700 to-purple-400 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-purple-700 to-purple-400 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">🌱</div>
                     <p class="font-bold">Pemberdayaan Masyarakat</p>
                     <p class="text-lg font-semibold">Rp. 241.377.000</p>
                 </div>
-                <div class="bg-gradient-to-r from-red-700 to-red-400 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-red-700 to-red-400 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">⚠️</div>
                     <p class="font-bold">Tak Terduga</p>
                     <p class="text-lg font-semibold">Rp. 11.600.000</p>
                 </div>
-                <div class="bg-gradient-to-r from-blue-900 to-blue-600 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-blue-900 to-blue-600 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">💸</div>
                     <p class="font-bold">Total Belanja</p>
                     <p class="text-lg font-semibold">Rp. 1.956.863.000</p>
@@ -164,42 +159,44 @@
         <section class="mb-12">
             <h3 class="text-2xl font-bold text-green-800 mb-4">2. Pendapatan</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div
-                    class="bg-gradient-to-r from-green-900 to-green-600 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-green-900 to-green-600 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">🏘️</div>
                     <p class="font-bold">Pendapatan Asli Desa</p>
                     <p class="text-lg font-semibold">Rp. 30.600.000</p>
                 </div>
-                <div
-                    class="bg-gradient-to-r from-purple-900 to-purple-600 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-purple-900 to-purple-600 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">🏦</div>
                     <p class="font-bold">Dana Desa (APBN)</p>
                     <p class="text-lg font-semibold">Rp. 1.103.786.000</p>
                 </div>
-                <div
-                    class="bg-gradient-to-r from-yellow-900 to-yellow-600 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-yellow-900 to-yellow-600 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">📊</div>
                     <p class="font-bold">Bagi Hasil</p>
                     <p class="text-lg font-semibold">Rp. 26.477.000</p>
                 </div>
-                <div class="bg-gradient-to-r from-rose-700 to-rose-500 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-rose-700 to-rose-500 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">💼</div>
                     <p class="font-bold">Pajak / Retribusi</p>
                     <p class="text-lg font-semibold">-</p>
                 </div>
-                <div
-                    class="bg-gradient-to-r from-indigo-700 to-indigo-500 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-indigo-700 to-indigo-500 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">📥</div>
                     <p class="font-bold">Alokasi Dana Desa</p>
                     <p class="text-lg font-semibold">Rp. 666.000.000</p>
                 </div>
-                <div class="bg-gradient-to-r from-lime-700 to-lime-500 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-lime-700 to-lime-500 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">🏛️</div>
                     <p class="font-bold">Bantuan Provinsi</p>
                     <p class="text-lg font-semibold">Rp. 130.000.000</p>
                 </div>
-                <div
-                    class="bg-gradient-to-r from-pink-700 to-pink-500 text-white p-6 rounded-lg shadow-md text-center col-span-full lg:col-span-3">
+                <div class="bg-gradient-to-r from-pink-700 to-pink-500 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+col-span-full lg:col-span-3">
                     <div class="text-4xl mb-2">📈</div>
                     <p class="font-bold">Surplus / Defisit</p>
                     <p class="text-lg font-semibold">Rp. 2.475.998</p>
@@ -211,18 +208,20 @@
         <section class="mb-20">
             <h3 class="text-2xl font-bold text-purple-800 mb-4">3. Pembiayaan</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-gradient-to-r from-cyan-700 to-cyan-500 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-cyan-700 to-cyan-500 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">📤</div>
                     <p class="font-bold">Penerimaan Pembiayaan</p>
                     <p class="text-lg font-semibold">Rp. 12.524.002</p>
                 </div>
-                <div
-                    class="bg-gradient-to-r from-fuchsia-700 to-fuchsia-500 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-fuchsia-700 to-fuchsia-500 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">📉</div>
                     <p class="font-bold">Pengeluaran Pembiayaan</p>
                     <p class="text-lg font-semibold">Rp. 15.000.000</p>
                 </div>
-                <div class="bg-gradient-to-r from-gray-700 to-gray-500 text-white p-6 rounded-lg shadow-md text-center">
+                <div class="bg-gradient-to-r from-gray-700 to-gray-500 text-white p-6 rounded-lg shadow-md text-center transform transition duration-300 hover:scale-105
+">
                     <div class="text-4xl mb-2">💼</div>
                     <p class="font-bold">Sisa Lebih Pembiayaan Anggaran</p>
                     <p class="text-lg font-semibold">-</p>
@@ -288,7 +287,8 @@
             </div>
         </div>
 
-        <div class="mt-10 border-t border-gray-200 py-10 text-center text-sm">
+        <div class="mt-10 border-t border-gray-200 py-10 text-center transform transition duration-300 hover:scale-105
+ text-sm">
             &copy; 2025 <span class="font-semibold">Desa Kersamaju</span>. Semua hak dilindungi.
         </div>
     </footer>

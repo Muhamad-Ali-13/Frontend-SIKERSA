@@ -7,6 +7,9 @@
     <title>Pendidikan - Desa Kersamaju</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+
     <script src="/style.js" defer></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
@@ -33,12 +36,14 @@
                     <ul id="dropdown1" class="absolute hidden bg-white shadow rounded mt-2 w-40 z-50">
                         <li><a href="../Demografi/pendidikan.html"
                                 class="block px-4 py-2 hover:bg-gray-100">Pendidikan</a></li>
-                        <li><a href="../Demografi/pekerjaan.html" class="block px-4 py-2 hover:bg-gray-100">Pekerjaan</a>
+                        <li><a href="../Demografi/pekerjaan.html"
+                                class="block px-4 py-2 hover:bg-gray-100">Pekerjaan</a>
                         </li>
                         <li><a href="../Demografi/agama.html" class="block px-4 py-2 hover:bg-gray-100">Agama</a></li>
                         <li><a href="../Demografi/jk.html" class="block px-4 py-2 hover:bg-gray-100">Jenis Kelamin</a>
                         </li>
-                        <li><a href="../Demografi/LwDesa.html" class="block px-4 py-2 hover:bg-gray-100">Luas Wilayah</a>
+                        <li><a href="../Demografi/LwDesa.html" class="block px-4 py-2 hover:bg-gray-100">Luas
+                                Wilayah</a>
                         </li>
                         <li><a href="../Demografi/MpDesa.html" class="block px-4 py-2 hover:bg-gray-100">Maps Desa</a>
                         </li>
@@ -115,7 +120,7 @@
         <div class="grid md:grid-cols-2 gap-8 items-start">
             <!-- Chart Section -->
             <div class="bg-white rounded-lg shadow p-6">
-                <h3 class="text-xl font-semibold text-center mb-6">Statistik Pendidikan</h3>
+                <h3 class="text-xl font-semibold text-center mb-6">Statistik Pendidikan Warga</h3>
                 <canvas id="pendidikanChart" class="w-full max-w-md mx-auto"></canvas>
             </div>
 
@@ -234,28 +239,22 @@
             type: 'pie',
             data: {
                 labels: [
-                    "Akademi/Diploma III",
-                    "Diploma I/II",
-                    "Diploma IV/S1",
-                    "SLTA/Sederajat",
-                    "SLTP/Sederajat",
-                    "Strata II",
-                    "Tamat SD",
-                    "Tidak Tamat SD",
-                    "Tidak/Belum Sekolah"
+                    'Sarjana',
+                    'SLTA/Sederajat',
+                    'SMP',
+                    'Tamat SD/Sederajat',
+                    'Tidak Tamat SD',
+                    'Tidak/Belum Sekolah'
                 ],
                 datasets: [{
-                    data: [12, 6, 52, 307, 640, 5, 2223, 448, 1153],
+                    data: [36, 456, 616, 1461, 1542, 410],
                     backgroundColor: [
-                        "#3B82F6",
-                        "#60A5FA",
-                        "#818CF8",
-                        "#FBBF24",
-                        "#F87171",
-                        "#10B981",
-                        "#E879F9",
-                        "#F472B6",
-                        "#94A3B8"
+                        '#3b82f6',  // Biru
+                        '#10b981',  // Hijau
+                        '#f59e0b',  // Kuning
+                        '#ef4444',  // Merah
+                        '#8b5cf6',  // Ungu
+                        '#6b7280'   // Abu
                     ],
                     borderWidth: 1
                 }]
@@ -266,14 +265,41 @@
                     legend: {
                         position: 'bottom',
                         labels: {
-                            boxWidth: 14,
-                            padding: 16
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    datalabels: {
+                        formatter: (value, context) => {
+                            const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                            const percentage = (value / total * 100).toFixed(1) + '%';
+                            return percentage;
+                        },
+                        color: '#fff',
+                        font: {
+                            weight: 'bold',
+                            size: 14
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const label = context.label || '';
+                                const value = context.parsed;
+                                const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                const percentage = (value / total * 100).toFixed(1) + '%';
+                                return `${label}: ${value} (${percentage})`;
+                            }
                         }
                     }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
     </script>
+
 </body>
 
 </html>

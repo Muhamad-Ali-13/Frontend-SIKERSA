@@ -7,6 +7,7 @@
     <title>Pendidikan - Desa Kersamaju</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="/style.js" defer></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
@@ -33,12 +34,14 @@
                     <ul id="dropdown1" class="absolute hidden bg-white shadow rounded mt-2 w-40 z-50">
                         <li><a href="../Demografi/pendidikan.html"
                                 class="block px-4 py-2 hover:bg-gray-100">Pendidikan</a></li>
-                        <li><a href="../Demografi/pekerjaan.html" class="block px-4 py-2 hover:bg-gray-100">Pekerjaan</a>
+                        <li><a href="../Demografi/pekerjaan.html"
+                                class="block px-4 py-2 hover:bg-gray-100">Pekerjaan</a>
                         </li>
                         <li><a href="../Demografi/agama.html" class="block px-4 py-2 hover:bg-gray-100">Agama</a></li>
                         <li><a href="../Demografi/jk.html" class="block px-4 py-2 hover:bg-gray-100">Jenis Kelamin</a>
                         </li>
-                        <li><a href="../Demografi/LwDesa.html" class="block px-4 py-2 hover:bg-gray-100">Luas Wilayah</a>
+                        <li><a href="../Demografi/LwDesa.html" class="block px-4 py-2 hover:bg-gray-100">Luas
+                                Wilayah</a>
                         </li>
                         <li><a href="../Demografi/MpDesa.html" class="block px-4 py-2 hover:bg-gray-100">Maps Desa</a>
                         </li>
@@ -106,10 +109,9 @@
             </a>
         </div>
     </div>
-    <!-- Main Content -->
     <main class="pt-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex-grow">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-blue-700 mb-10">Data Pekerjaan Warga Desa
-            Kersamaju
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-blue-700 mb-10">
+            Data Pekerjaan Warga Desa Kersamaju
         </h2>
 
         <div class="grid md:grid-cols-2 gap-8 items-start">
@@ -176,6 +178,7 @@
         </div>
     </main>
 
+
     <!-- Footer -->
     <footer class="bg-white text-dark mt-10 pt-10">
         <div class="border-t border-gray-200 py-10">
@@ -238,8 +241,8 @@
     </footer>
 
     <script>
-        const ctxPekerjaan = document.getElementById('pekerjaanChart').getContext('2d');
-        new Chart(ctxPekerjaan, {
+        const ctx = document.getElementById('pekerjaanChart').getContext('2d');
+        const pekerjaanChart = new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: [
@@ -255,14 +258,13 @@
                 datasets: [{
                     data: [1340, 450, 35, 28, 330, 1200, 980, 147],
                     backgroundColor: [
-                        '#4ade80',
-                        '#facc15',
-                        '#60a5fa',
-                        '#818cf8',
-                        '#f472b6',
-                        '#34d399',
-                        '#f87171',
-                        '#c084fc'
+                        '#3b82f6',  // Biru
+                        '#10b981',  // Hijau
+                        '#f59e0b',  // Kuning
+                        '#ef4444',  // Merah
+                        '#8b5cf6',  // Ungu
+                        '#6b7280',
+                        '#d1d5db'   // Abu
                     ],
                     borderWidth: 1
                 }]
@@ -273,14 +275,41 @@
                     legend: {
                         position: 'bottom',
                         labels: {
-                            boxWidth: 14,
-                            padding: 16
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    datalabels: {
+                        formatter: (value, context) => {
+                            const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                            const percentage = (value / total * 100).toFixed(1) + '%';
+                            return percentage;
+                        },
+                        color: '#fff',
+                        font: {
+                            weight: 'bold',
+                            size: 14
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const label = context.label || '';
+                                const value = context.parsed;
+                                const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                const percentage = (value / total * 100).toFixed(1) + '%';
+                                return `${label}: ${value} (${percentage})`;
+                            }
                         }
                     }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
     </script>
+
 </body>
 
 </html>

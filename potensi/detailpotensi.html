@@ -32,12 +32,14 @@
                     <ul id="dropdown1" class="absolute hidden bg-white shadow rounded mt-2 w-40 z-50">
                         <li><a href="../Demografi/pendidikan.html"
                                 class="block px-4 py-2 hover:bg-gray-100">Pendidikan</a></li>
-                        <li><a href="../Demografi/pekerjaan.html" class="block px-4 py-2 hover:bg-gray-100">Pekerjaan</a>
+                        <li><a href="../Demografi/pekerjaan.html"
+                                class="block px-4 py-2 hover:bg-gray-100">Pekerjaan</a>
                         </li>
                         <li><a href="../Demografi/agama.html" class="block px-4 py-2 hover:bg-gray-100">Agama</a></li>
                         <li><a href="../Demografi/jk.html" class="block px-4 py-2 hover:bg-gray-100">Jenis Kelamin</a>
                         </li>
-                        <li><a href="../Demografi/LwDesa.html" class="block px-4 py-2 hover:bg-gray-100">Luas Wilayah</a>
+                        <li><a href="../Demografi/LwDesa.html" class="block px-4 py-2 hover:bg-gray-100">Luas
+                                Wilayah</a>
                         </li>
                         <li><a href="../Demografi/MpDesa.html" class="block px-4 py-2 hover:bg-gray-100">Maps Desa</a>
                         </li>
@@ -118,12 +120,21 @@
                     Objek wisata alam dan pemancingan dengan pemandangan pegunungan yang
                     indah dan udara sejuk.
                 <p class="text-xl font-semibold text-emerald-600 mb-4">Rp 10.000 / orang</p>
-                <div class="flex gap-4">
+                <div class="flex flex-wrap gap-4">
+                    <!-- Tombol WhatsApp -->
                     <a href="https://wa.me/6281234567890" target="_blank"
                         class="flex items-center gap-2 bg-emerald-500 text-white px-4 py-2 rounded hover:bg-emerald-600 transition">
                         <i class="ph ph-whatsapp-logo"></i> Pesan Sekarang
                     </a>
-                    <button
+
+                    <!-- Tombol Lokasi -->
+                    <a href="https://www.google.com/maps?q=-6.973620,107.630610" target="_blank"
+                        class="flex items-center gap-2 border border-gray-400 px-4 py-2 rounded hover:bg-gray-100 transition">
+                        <i class="ph ph-map-pin"></i> Lokasi
+                    </a>
+
+                    <!-- Tombol Bagikan -->
+                    <button onclick="sharePage()"
                         class="flex items-center gap-2 border border-gray-400 px-4 py-2 rounded hover:bg-gray-100 transition">
                         <i class="ph ph-share-fat"></i> Bagikan
                     </button>
@@ -192,6 +203,18 @@
             &copy; 2025 <span class="font-semibold">Desa Kersamaju</span>. Semua hak dilindungi.
         </div>
     </footer>
+    <script>
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title,
+                    url: window.location.href
+                }).catch(err => console.error('Share failed:', err));
+            } else {
+                alert('Fitur berbagi tidak didukung di browser ini.');
+            }
+        }
+    </script>
 
 </body>
 

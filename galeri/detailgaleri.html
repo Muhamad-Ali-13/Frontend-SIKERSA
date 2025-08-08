@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lapak Desa - UMKM Kersamaju</title>
+    <title>Detail Galeri</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/style.js" defer></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
-<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
+<body class="bg-gray-50 font-sans min-h-screen">
     <!-- Navbar -->
     <nav id="navbar"
         class="fixed top-4 left-4 right-4 z-50 bg-white bg-opacity-90 backdrop-blur-md text-black rounded-xl shadow-lg transition-all duration-300">
@@ -108,44 +107,15 @@
         </div>
     </div>
 
-    <!-- Konten Detail Produk -->
-    <main class="pt-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full flex-grow">
-        <div class="grid md:grid-cols-2 gap-8 bg-white rounded-lg shadow-md p-6">
-            <!-- Gambar Produk -->
-            <img src="../img/kripik.jpeg" alt="Keripik Singkong Pedas" class="w-full h-80 object-cover rounded">
+    <div class="max-w-4xl mx-auto mt-20 py-16 px-6">
+        <div id="detail-container" class="bg-white rounded-lg shadow-lg p-6">
+            <!-- Konten detail akan di-render melalui JavaScript -->
 
-            <!-- Info Produk -->
-            <div>
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">Keripik Singkong Pedas</h2>
-                <p class="text-sm text-gray-500 mb-4">Pemilik: <strong class="text-gray-700">Bu Tini</strong></p>
-                <p class="text-gray-700 leading-relaxed mb-6">
-                    Keripik singkong renyah buatan rumahan, diolah dari singkong pilihan dan bumbu pedas manis khas
-                    desa. Cocok untuk camilan sehari-hari atau oleh-oleh.
-                </p>
-                <p class="text-xl font-semibold text-emerald-600 mb-4">Rp 15.000 / bungkus</p>
-                <div class="flex flex-wrap gap-4">
-                    <!-- Tombol WhatsApp -->
-                    <a href="https://wa.me/6281234567890" target="_blank"
-                        class="flex items-center gap-2 bg-emerald-500 text-white px-4 py-2 rounded hover:bg-emerald-600 transition">
-                        <i class="ph ph-whatsapp-logo"></i> Pesan Sekarang
-                    </a>
-
-                    <!-- Tombol Lokasi -->
-                    <a href="https://www.google.com/maps?q=-6.973620,107.630610" target="_blank"
-                        class="flex items-center gap-2 border border-gray-400 px-4 py-2 rounded hover:bg-gray-100 transition">
-                        <i class="ph ph-map-pin"></i> Lokasi
-                    </a>
-
-                    <!-- Tombol Bagikan -->
-                    <button onclick="sharePage()"
-                        class="flex items-center gap-2 border border-gray-400 px-4 py-2 rounded hover:bg-gray-100 transition">
-                        <i class="ph ph-share-fat"></i> Bagikan
-                    </button>
-                </div>
-            </div>
         </div>
-    </main>
-
+        <a href="galeri.html" class="text-blue-600 hover:underline flex items-center mb-4">
+            <i class="ph ph-arrow-left mr-2"></i> Kembali ke Galeri
+        </a>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-white text-dark mt-10 pt-10">
@@ -207,20 +177,51 @@
             &copy; 2025 <span class="font-semibold">Desa Kersamaju</span>. Semua hak dilindungi.
         </div>
     </footer>
-    <!-- Script untuk share -->
+    <script src="/style.js"></script>
+
     <script>
-        function sharePage() {
-            if (navigator.share) {
-                navigator.share({
-                    title: document.title,
-                    url: window.location.href
-                }).catch(err => console.error('Share failed:', err));
-            } else {
-                alert('Fitur berbagi tidak didukung di browser ini.');
+        const galeriData = {
+            1: {
+                title: "Gotong Royong Warga",
+                image: "../img/opsih.jpeg",
+                description: "Warga Desa Kersamaju bergotong royong memperbaiki jalan dusun secara swadaya.",
+                date: "10 Juni 2025",
+                location: "Kampung Cibitung"
+            },
+            2: {
+                title: "Lomba Agustusan",
+                image: "../img/lomba.jpeg",
+                description: "Masyarakat merayakan Hari Kemerdekaan RI dengan lomba yang meriah.",
+                date: "17 Agustus 2025",
+                location: "Lapangan Desa"
+            },
+            3: {
+                title: "Panen Raya",
+                image: "../img/panen.jpeg",
+                description: "Panen raya hasil pertanian warga sebagai keberhasilan program ketahanan pangan.",
+                date: "25 Juli 2025",
+                location: "Sawah Blok Timur"
             }
+            // Tambah data lainnya sesuai kebutuhan
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+        const data = galeriData[id];
+
+        if (data) {
+            document.getElementById("detail-container").innerHTML = `
+        <img src="${data.image}" alt="${data.title}" class="w-full h-96 object-cover rounded mb-6">
+        <h1 class="text-3xl font-bold mb-2">${data.title}</h1>
+        <p class="text-gray-500 text-sm mb-4">${data.date} • ${data.location}</p>
+        <p class="text-gray-700 leading-relaxed">${data.description}</p>
+      `;
+        } else {
+            document.getElementById("detail-container").innerHTML = `
+        <p class="text-red-500">Data tidak ditemukan.</p>
+      `;
         }
     </script>
-
 </body>
 
 </html>

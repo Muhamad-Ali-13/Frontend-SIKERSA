@@ -7,6 +7,7 @@
     <title>Jenis Kelamin - Desa Kersamaju</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body class="bg-gray-50 font-sans min-h-screen flex flex-col">
@@ -107,16 +108,16 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <main class="pt-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex-grow">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-blue-700 mb-10">Data Jenis Kelamin Warga Desa
-            Kersamaju</h2>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-blue-700 mb-10">
+            Data Jenis Kelamin Warga Desa Kersamaju
+        </h2>
 
         <div class="grid md:grid-cols-2 gap-8 items-start">
             <!-- Chart Section -->
             <div class="bg-white rounded-lg shadow p-6">
                 <h3 class="text-xl font-semibold text-center mb-6">Statistik Jenis Kelamin</h3>
-                <canvas id="jkChart" class="w-full max-w-md mx-auto"></canvas>
+                <canvas id="genderChart" class="w-full max-w-md mx-auto"></canvas>
             </div>
 
             <!-- Table Section -->
@@ -133,12 +134,12 @@
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-2">1</td>
                             <td class="px-4 py-2">Laki-laki</td>
-                            <td class="px-4 py-2">2700</td>
+                            <td class="px-4 py-2">2110</td>
                         </tr>
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-2">2</td>
                             <td class="px-4 py-2">Perempuan</td>
-                            <td class="px-4 py-2">2674</td>
+                            <td class="px-4 py-2">2112</td>
                         </tr>
                     </tbody>
                 </table>
@@ -147,25 +148,40 @@
     </main>
 
     <script>
-        const ctxJK = document.getElementById('jkChart').getContext('2d');
-        new Chart(ctxJK, {
+        const genderData = {
+            labels: ['Laki-laki', 'Perempuan'],
+            datasets: [{
+                label: 'Jumlah',
+                data: [2110, 2112],
+                backgroundColor: ['#3B82F6', '#F472B6'],
+                borderColor: '#fff',
+                borderWidth: 2
+            }]
+        };
+
+        const genderChart = new Chart(document.getElementById('genderChart'), {
             type: 'pie',
-            data: {
-                labels: ['Laki-laki', 'Perempuan'],
-                datasets: [{
-                    data: [2700, 2674],
-                    backgroundColor: ['#3b82f6', '#f472b6'],
-                    borderWidth: 1
-                }]
-            },
+            data: genderData,
             options: {
                 responsive: true,
                 plugins: {
                     legend: {
                         position: 'bottom',
                         labels: {
-                            boxWidth: 14,
-                            padding: 16
+                            color: '#374151',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const value = context.parsed;
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return `${context.label}: ${value} (${percentage}%)`;
+                            }
                         }
                     }
                 }
