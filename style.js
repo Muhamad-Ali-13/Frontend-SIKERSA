@@ -1,16 +1,4 @@
 
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#4e7b99', //terang
-                        primaryDark: '#3a5a6e', //gelap
-                    }
-                }
-            }
-}
-
-
 tailwind.config = {
     theme: {
         extend: {

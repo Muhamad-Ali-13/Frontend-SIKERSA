@@ -13,9 +13,9 @@
 </head>
 
 <body class="bg-gray-50 font-sans min-h-screen flex flex-col">
-    <!-- Navbar -->
+     <!-- Navbar -->
     <nav id="navbar"
-        class="fixed top-4 left-4 right-4 z-50 bg-white bg-opacity-90 backdrop-blur-md text-black rounded-xl shadow-lg transition-all duration-300">
+        class="fixed top-4 left-4 right-4 z-50 bg-white text-black rounded-xl shadow-lg transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <img src="../img/logodesa.png" alt="Logo" class="w-8 h-8">
@@ -24,16 +24,17 @@
             <button class="md:hidden text-2xl" onclick="document.getElementById('sidebar').classList.toggle('hidden')">
                 <i class="ph ph-list"></i>
             </button>
-            <ul class="hidden md:flex gap-6 text-sm items-center">
-                <li><a href="../Beranda/LdPage.html" class="hover:text-blue-600 transition">Beranda</a></li>
-                <li><a href="../Profil/profile.html" class="hover:text-blue-600 transition">Profil</a></li>
+            <ul class="hidden md:flex gap-6 text-sm items-center navbar-links">
+                <li><a href="../Beranda/LdPage.html" class="hover:text-[#3a5a6e] transition">Beranda</a></li>
+                <li><a href="../Profil/profile.html" class="hover:text-[#3a5a6e] transition">Profil</a></li>
                 <li class="relative">
                     <button onclick="toggleDropdown('dropdown1')"
-                        class="hover:text-blue-600 transition flex items-center gap-1">Demografi <i
+                        class="hover:text-[#3a5a6e] transition flex items-center gap-1">Demografi <i
                             class="ph ph-caret-down"></i></button>
-                    <ul id="dropdown1" class="absolute hidden bg-white shadow rounded mt-2 w-40 z-50">
+                    <ul id="dropdown1" class="absolute hidden bg-white shadow rounded mt-2 w-40 z-50 text-black">
                         <li><a href="../Demografi/pendidikan.html"
-                                class="block px-4 py-2 hover:bg-gray-100">Pendidikan</a></li>
+                                class="block px-4 py-2 hover:bg-gray-100">Pendidikan</a>
+                        </li>
                         <li><a href="../Demografi/pekerjaan.html"
                                 class="block px-4 py-2 hover:bg-gray-100">Pekerjaan</a>
                         </li>
@@ -45,25 +46,25 @@
                         </li>
                         <li><a href="../Demografi/MpDesa.html" class="block px-4 py-2 hover:bg-gray-100">Maps Desa</a>
                         </li>
-
                     </ul>
                 </li>
-                <li><a href="../laporanApdes/apdes.html" class="hover:text-blue-600 transition">Laporan APDES</a></li>
+                <li><a href="../laporanApdes/apdes.html" class="hover:text-[#3a5a6e] transition">Laporan APDES</a></li>
                 <li class="relative">
                     <button onclick="toggleDropdown('dropdown2')"
-                        class="hover:text-blue-600 transition flex items-center gap-1">Potensi <i
+                        class="hover:text-[#3a5a6e] transition flex items-center gap-1">Potensi <i
                             class="ph ph-caret-down"></i></button>
-                    <ul id="dropdown2" class="absolute hidden bg-white shadow rounded mt-2 w-48 z-50">
+                    <ul id="dropdown2" class="absolute hidden bg-white shadow rounded mt-2 w-48 z-50 text-black">
                         <li><a href="../potensi/lapakdesa.html" class="block px-4 py-2 hover:bg-gray-100">Lapak Desa
                                 (UMKM)</a></li>
                         <li><a href="../potensi/potensidesa.html" class="block px-4 py-2 hover:bg-gray-100">Potensi
-                                Desa</a></li>
+                                Desa</a>
+                        </li>
                     </ul>
                 </li>
-                <li><a href="../galeri/galeri.html" class="hover:text-blue-600 transition">Galeri</a></li>
+                <li><a href="../galeri/galeri.html" class="hover:text-[#3a5a6e] transition">Galeri</a></li>
                 <li>
                     <a href="../Pengaduan/pengaduan.html"
-                        class="flex items-center gap-2 px-4 py-2 bg-gradient-to-b from-blue-500 to-blue-700 text-white font-semibold rounded shadow hover:shadow-lg transform hover:scale-105 transition duration-300">
+                        class="flex items-center gap-2 px-4 py-2 bg-gradient-to-b from-[#4e7b99] to-[#3a5a6e] text-white font-semibold rounded shadow hover:shadow-lg transform hover:scale-105 transition duration-300">
                         <i class="ph ph-chat-centered-text text-lg"></i>
                         Kritik & Saran
                     </a>
@@ -109,8 +110,9 @@
             </a>
         </div>
     </div>
+    
     <main class="pt-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex-grow">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-blue-700 mb-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-[#4e7b99] mb-10">
             Data Pekerjaan Warga Desa Kersamaju
         </h2>
 
@@ -124,7 +126,7 @@
             <!-- Table Section -->
             <div class="bg-white rounded-lg shadow overflow-auto">
                 <table class="w-full text-left text-sm">
-                    <thead class="bg-blue-700 text-white">
+                    <thead class="bg-[#4e7b99] text-white">
                         <tr>
                             <th class="px-4 py-3">No</th>
                             <th class="px-4 py-3">Jenis Pekerjaan</th>
@@ -180,62 +182,49 @@
 
 
     <!-- Footer -->
-    <footer class="bg-white text-dark mt-10 pt-10">
-        <div class="border-t border-gray-200 py-10">
-            <div class="max-w-7xl  mx-auto px-6 sm:px-8 lg:px-10">
+    <footer class="bg-[#3a5a6e] text-white mt-10 pt-10">
+        <div class="border-t border-white/20 py-10">
+            <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    <!-- Sejarah Singkat -->
                     <div>
                         <h4 class="text-lg font-semibold mb-3">Sejarah Singkat Desa</h4>
                         <p class="text-sm leading-relaxed text-justify">
                             Pada awal pendiriannya, Desa Kersamaju dikenal dengan nama <strong>Desa Cipetir</strong>.
-                            Saat
-                            itu, kantor desa terletak di Kampung Cibitung dan berdiri sekitar tahun <strong>1937 hingga
-                                1957</strong>.
+                            Saat itu, kantor desa terletak di Kampung Cibitung dan berdiri sekitar tahun <strong>1937
+                                hingga 1957</strong>.
                         </p>
                     </div>
-
-                    <!-- Tautan Cepat -->
                     <div>
                         <h4 class="text-lg font-semibold mb-3">Tautan Cepat</h4>
                         <ul class="space-y-1 text-sm">
-                            <li><a href="../Beranda/LdPage.html" class="hover:text-blue-400 transition">Beranda</a></li>
-                            <li><a href="../Profil/profile.html" class="hover:text-blue-400 transition">Profil</a></li>
-                            <li><a href="../Demografi/LwDesa.html" class="hover:text-blue-400 transition">Demografi</a>
+                            <li><a href="../Beranda/LdPage.html" class="hover:text-[#4e7b99]">Beranda</a></li>
+                            <li><a href="../Profil/profile.html" class="hover:text-[#4e7b99]">Profil</a></li>
+                            <li><a href="../Demografi/LwDesa.html" class="hover:text-[#4e7b99]">Demografi</a></li>
+                            <li><a href="../laporanApdes/apdes.html" class="hover:text-[#4e7b99]">Laporan APBDes</a>
                             </li>
-                            <li><a href="../laporanApdes/apdes.html" class="hover:text-blue-400 transition">Laporan
-                                    APBDes</a>
+                            <li><a href="../potensi/lapakdesa.html" class="hover:text-[#4e7b99]">Potensi</a></li>
+                            <li><a href="../galeri/galeri.html" class="hover:text-[#4e7b99]">Galeri</a></li>
+                            <li><a href="../Pengaduan/pengaduan.html" class="hover:text-[#4e7b99]">Kritik & Saran</a>
                             </li>
-                            <li><a href="../potensi/lapakdesa.html" class="hover:text-blue-400 transition">Potensi</a>
-                            </li>
-                            <li><a href="../galeri/galeri.html" class="hover:text-blue-400 transition">Galeri</a></li>
-                            <li><a href="../Pengaduan/pengaduan.html" class="hover:text-blue-400 transition">Kritik &
-                                    Saran</a></li>
                         </ul>
                     </div>
-
-                    <!-- Kontak Kami -->
                     <div>
                         <h4 class="text-lg font-semibold mb-3">Kontak Kami</h4>
-                        <p class="text-sm leading-relaxed">Alamat: Desa Kersamaju, Kec. Cigalontang, Kab. Tasikmalaya
-                        </p>
-                        <p class="text-sm">Email: <a href="..mailto:info@kersamaju.desa.id"
-                                class="hover:text-blue-400">info@kersamaju.desa.id</a></p>
-                        <p class="text-sm mb-3">Telp: <a href="..tel:+6281234567890"
-                                class="hover:text-blue-400">0812-3456-7890</a></p>
-
-                        <!-- Ikon Media Sosial -->
+                        <p class="text-sm">Alamat: Desa Kersamaju, Kec. Cigalontang, Kab. Tasikmalaya</p>
+                        <p class="text-sm">Email: <a href="mailto:info@kersamaju.desa.id"
+                                class="hover:text-[#4e7b99]">info@kersamaju.desa.id</a></p>
+                        <p class="text-sm mb-3">Telp: <a href="tel:+6281234567890"
+                                class="hover:text-[#4e7b99]">0812-3456-7890</a></p>
                         <div class="flex space-x-4 mt-2">
-                            <a href="..#" class="hover:text-blue-400 text-xl"><i class="ph ph-facebook-logo"></i></a>
-                            <a href="..#" class="hover:text-pink-400 text-xl"><i class="ph ph-instagram-logo"></i></a>
-                            <a href="..#" class="hover:text-red-500 text-xl"><i class="ph ph-youtube-logo"></i></a>
+                            <a href="#" class="hover:text-[#4e7b99] text-xl"><i class="ph ph-facebook-logo"></i></a>
+                            <a href="#" class="hover:text-[#4e7b99] text-xl"><i class="ph ph-instagram-logo"></i></a>
+                            <a href="#" class="hover:text-[#4e7b99] text-xl"><i class="ph ph-youtube-logo"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="mt-10 border-t border-gray-200 py-10 text-center text-sm">
+        <div class="border-t border-white/20 py-6 text-center text-sm">
             &copy; 2025 <span class="font-semibold">Desa Kersamaju</span>. Semua hak dilindungi.
         </div>
     </footer>
